@@ -1,16 +1,13 @@
 {
-    "name": "yiisoft/yii2-app-basic",
-    "description": "Yii 2 Basic Project Template",
-    "keywords": ["yii2", "framework", "basic", "project template"],
-    "homepage": "http://www.yiiframework.com/",
+    "name": "naffiq/yii2-app-bridge",
+    "description": "Yii 2 Bridge Project Template",
+    "keywords": ["yii2", "framework", "bridge", "project template"],
+    "homepage": "http://www.naffiq.com/",
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
-        "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
-        "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2"
+        "issues": "https://github.com/naffiq/yii2-bridge/issues?state=open",
+        "source": "https://github.com/naffiq/yii2-bridge"
     },
     "minimum-stability": "stable",
     "require": {
@@ -54,7 +51,7 @@
         },
         "yii\\composer\\Installer::postInstall": {
             "generateCookieValidationKey": [
-                "config/web.php"
+                "config/main.php"
             ]
         }
     },
