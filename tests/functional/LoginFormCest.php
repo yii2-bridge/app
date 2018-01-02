@@ -5,6 +5,7 @@ class LoginFormCest
     public function _before(\FunctionalTester $I)
     {
         $I->amOnRoute('site/login');
+        $I->haveFixtures(['user' => \app\tests\fixtures\UserFixture::class]);
     }
 
     public function openLoginPage(\FunctionalTester $I)
@@ -16,17 +17,17 @@ class LoginFormCest
     // demonstrates `amLoggedInAs` method
     public function internalLoginById(\FunctionalTester $I)
     {
-        $I->amLoggedInAs(100);
+        $I->amLoggedInAs(1);
         $I->amOnPage('/');
-        $I->see('Logout (admin)');
+        $I->see('Logout (naffiq)');
     }
 
     // demonstrates `amLoggedInAs` method
     public function internalLoginByInstance(\FunctionalTester $I)
     {
-        $I->amLoggedInAs(\app\models\User::findByUsername('admin'));
+        $I->amLoggedInAs(\Da\User\Model\User::findOne(['username' => 'pikeperch9']));
         $I->amOnPage('/');
-        $I->see('Logout (admin)');
+        $I->see('Logout (pikeperch9)');
     }
 
     public function loginWithEmptyCredentials(\FunctionalTester $I)
@@ -50,10 +51,10 @@ class LoginFormCest
     public function loginSuccessfully(\FunctionalTester $I)
     {
         $I->submitForm('#login-form', [
-            'LoginForm[username]' => 'admin',
-            'LoginForm[password]' => 'admin',
+            'LoginForm[username]' => 'naffiq',
+            'LoginForm[password]' => '123456',
         ]);
-        $I->see('Logout (admin)');
+        $I->see('Logout (naffiq)');
         $I->dontSeeElement('form#login-form');              
     }
 }

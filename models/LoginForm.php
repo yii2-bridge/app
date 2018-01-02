@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Da\User\Model\User;
 use Yii;
 use yii\base\Model;
 
@@ -47,7 +48,7 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
 
-            if (!$user || !$user->validatePassword($this->password)) {
+            if (!$user || !\Yii::$app->security->validatePassword($this->password, $user->password_hash)) {
                 $this->addError($attribute, 'Incorrect username or password.');
             }
         }
@@ -73,7 +74,7 @@ class LoginForm extends Model
     public function getUser()
     {
         if ($this->_user === false) {
-            $this->_user = User::findByUsername($this->username);
+            $this->_user = User::findOne(['username' => $this->username]);
         }
 
         return $this->_user;
