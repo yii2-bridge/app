@@ -50,10 +50,10 @@ Read [Usuario docs](http://yii2-usuario.readthedocs.io/en/latest/) for further d
 
 You can pre-configure application for different environments and switch them easily. Change your config for different modes in these files:
 
-- config/local.php — Local development. This file overwrites all configuration defined in your `main.php` or `mode_*.php` files;
-- config/mode_stage.php — Staging (development) server;
-- config/mode_prod.php — Production server;
-- config/mode_test.php — Configuration for tests (used by codeception);
+- `config/local.php` — Local development. This file overwrites all configuration defined in your `main.php` or `mode_*.php` files;
+- `config/mode_stage.php` — Staging (development) server;
+- `config/mode_prod.php` — Production server;
+- `config/mode_test.php` — Configuration for tests (used by codeception);
 
 Then switch easily between them by creating `mode.php` file with mode name:
 
