@@ -7,7 +7,14 @@ require(__DIR__ . '/vendor/autoload.php');
 defined('STDIN') or define('STDIN', fopen('php://stdin', 'r'));
 defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
 
-$env = new \janisto\environment\Environment(__DIR__ . '/config');
+
+$modeFile = __DIR__ . '/config/mode.php';
+$mode = 'prod';
+if (file_exists($modeFile)) {
+    $mode = file_get_contents($modeFile);
+}
+
+$env = new \janisto\environment\Environment(__DIR__ . '/config', $mode);
 $env->setup();
 $exitCode = (new yii\console\Application($env->console))->run();
 exit($exitCode);

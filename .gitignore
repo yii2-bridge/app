@@ -30,3 +30,5 @@ tests/_output/*
 tests/_support/_generated
 /web/media
 /config/local.php
+
+/config/mode.php
