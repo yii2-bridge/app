@@ -38,13 +38,13 @@ which is yii2-bridge. Add your sub-modules for creating admin sections. More doc
 
 ## Users
 
-Yii2 Bridge utilizes (yii2-usuario)[https://github.com/2amigos/yii2-usuario] under the hood, which takes user management to new level. Create your first user with CLI command:
+Yii2 Bridge utilizes [yii2-usuario](https://github.com/2amigos/yii2-usuario) under the hood, which takes user management to new level. Create your first user with CLI command:
 
 ```bash
 $ php yii user/create <email> <username> <password> <role> // role should be admin for your first user
 ```
 
-Read (Usuario docs)[http://yii2-usuario.readthedocs.io/en/latest/] for further details.
+Read [Usuario docs](http://yii2-usuario.readthedocs.io/en/latest/) for further details.
 
 ## Environment
 
@@ -62,9 +62,9 @@ Then switch easily between them by creating `mode.php` file with mode name:
 prod
 ```
 
-> Note: `mode.php` is registered in `.gitignore` to prevent config collisions between environments. You have to create it manually or with (deployer)[https://deployer.org] job once in every project environment.
+> Note: `mode.php` is registered in `.gitignore` to prevent config collisions between environments. You have to create it manually or with [deployer](https://deployer.org) job once in every project environment.
 
-Refer to (janisto/yii2-environment)[https://github.com/janisto/yii2-environment] for further details.
+Refer to [janisto/yii2-environment](https://github.com/janisto/yii2-environment) for further details.
 
 ## Testing
 
