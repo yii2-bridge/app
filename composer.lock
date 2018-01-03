@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd63cd971909096b2efc9e682ff3380f",
+    "content-hash": "8280b06a4dfbb9503a3dd5047d2a3d9f",
     "packages": [
         {
             "name": "2amigos/2fa-library",
