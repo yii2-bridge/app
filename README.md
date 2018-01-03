@@ -17,7 +17,13 @@ Create project via composer by running following command:
 $ composer create-project naffiq/yii2-app-bridge MY_APP_NAME
 ```
 
-Create `config/local.php` (you may copy `config/mode_stage.php` for example) and configure your local environment DB.
+Create `config/local.php` (you may copy `config/example.local.php` for example) and configure your local environment DB.
+
+```bash
+$ cp config/example.local.php config/local.php
+```
+
+> Note: `local.php` is registered in `.gitignore` to prevent config collisions between developers 
 
 Then run migrations with single command:
 
@@ -55,6 +61,8 @@ Then switch easily between them by creating `mode.php` file with mode name:
 ```php
 prod
 ```
+
+> Note: `mode.php` is registered in `.gitignore` to prevent config collisions between environments. You have to create it manually or with (deployer)[https://deployer.org] job once in every project environment.
 
 Refer to (janisto/yii2-environment)[https://github.com/janisto/yii2-environment] for further details.
 
