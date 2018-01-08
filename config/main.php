@@ -21,7 +21,10 @@ return [
     'web' => [
         'id' => 'bridge',
         'basePath' => dirname(__DIR__),
-        'bootstrap' => ['log', 'admin'],
+        'bootstrap' => [
+            'log', 'admin',
+            '\app\events\Bootstrap'
+        ],
         'aliases' => [
             '@bower' => '@vendor/bower-asset',
             '@npm' => '@vendor/npm-asset',
@@ -35,7 +38,7 @@ return [
                 'class' => 'yii\caching\FileCache',
             ],
             'user' => [
-                'identityClass' => \Da\User\Model\User::class,
+                'identityClass' => \app\models\User::class,
                 'enableAutoLogin' => true,
             ],
             'authManager' => [
@@ -71,6 +74,11 @@ return [
         'modules' => [
             'admin' => [
                 'class' => \naffiq\bridge\BridgeModule::class,
+                'userClass' => \app\models\User::class,
+                'userSettings' => [
+                    'class' => \Da\User\Module::className(),
+                    'administratorPermissionName' => 'admin'
+                ]
             ],
         ],
         'params' => $params,
@@ -78,7 +86,10 @@ return [
     'console' => [
         'id' => 'basic-console',
         'basePath' => dirname(__DIR__),
-        'bootstrap' => ['log', 'admin'],
+        'bootstrap' => [
+            'log', 'admin',
+            '\app\events\Bootstrap'
+        ],
         'controllerNamespace' => 'app\commands',
         'components' => [
             'cache' => [
