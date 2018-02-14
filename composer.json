@@ -15,7 +15,7 @@
         "yiisoft/yii2": "~2.0.5",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
-        "naffiq/yii2-bridge": "^0.7.0",
+        "naffiq/yii2-bridge": "~0.7.1",
         "janisto/yii2-environment": "^1.3"
     },
     "require-dev": {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a3178d7e8c9bd506432891b6ba18ddb",
+    "content-hash": "b0fc3444366bf5463122538bcfb21dc1",
     "packages": [
         {
             "name": "2amigos/2fa-library",
@@ -2251,16 +2251,16 @@
         },
         {
             "name": "naffiq/yii2-bridge",
-            "version": "v0.7.0",
+            "version": "v0.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/naffiq/yii2-bridge.git",
-                "reference": "9957134940cb7df4d6aabfff35541b28e3b2cf83"
+                "reference": "868fd96a4ec3ae20aea94e767ea878974ec1e8a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/naffiq/yii2-bridge/zipball/9957134940cb7df4d6aabfff35541b28e3b2cf83",
-                "reference": "9957134940cb7df4d6aabfff35541b28e3b2cf83",
+                "url": "https://api.github.com/repos/naffiq/yii2-bridge/zipball/868fd96a4ec3ae20aea94e767ea878974ec1e8a3",
+                "reference": "868fd96a4ec3ae20aea94e767ea878974ec1e8a3",
                 "shasum": ""
             },
             "require": {
@@ -2312,7 +2312,7 @@
                 }
             ],
             "description": "Simple admin panel for enthusiasts",
-            "time": "2018-02-13T08:54:51+00:00"
+            "time": "2018-02-14T18:39:32+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
