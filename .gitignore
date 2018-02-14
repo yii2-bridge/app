@@ -32,3 +32,4 @@ tests/_support/_generated
 /config/local.php
 
 /config/mode.php
+/node_modules
