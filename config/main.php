@@ -41,6 +41,15 @@ return [
                 'identityClass' => \app\models\User::class,
                 'enableAutoLogin' => true,
             ],
+            'i18n' => [
+                'translations' => [
+                    'admin' => [
+                        'class' => 'yii\i18n\PhpMessageSource',
+                        'sourceLanguage' => 'en-US',
+                        'basePath' => '@app/messages',
+                    ]
+                ]
+            ],
             'authManager' => [
                 'class' => \Da\User\Component\AuthDbManagerComponent::class,
             ],
