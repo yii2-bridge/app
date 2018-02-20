@@ -1,0 +1,29 @@
+
+@font-face {
+  font-family: 'websymbolsligaregular';
+  src: url('../fonts/websymbolsligaregular.eot');
+  src: url('../fonts/websymbolsligaregular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/websymbolsligaregular.woff') format('woff'),
+       url('../fonts/websymbolsligaregular.ttf') format('truetype'),
+       url('../fonts/websymbolsligaregular.svg#WebSymbolsRegular') format('svg');
+}
+
+@font-face {
+  font-family: 'PTSans-Regular';
+  src: url('../fonts/PTSans-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/PTSans-Regular.woff') format('woff'),
+       url('../fonts/PTSans-Regular.ttf') format('truetype'),
+       url('../fonts/PTSans-Regular.svg#PTSans-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PTSans-Bold';
+  src: url('../fonts/PTSans-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/PTSans-Bold.woff') format('woff'),
+       url('../fonts/PTSans-Bold.ttf') format('truetype'),
+       url('../fonts/PTSans-Bold.svg#PTSans-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

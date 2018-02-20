@@ -1,0 +1,11 @@
+
+.link {
+  transition: $transition-primary;
+  &:focus {
+    color: #000;
+  }
+  &:hover,
+  &:active {
+    color: $color-primary;
+  }
+}
