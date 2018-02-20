@@ -33,5 +33,4 @@ tests/_support/_generated
 
 /config/mode.php
 /node_modules
-web
 .tmp
