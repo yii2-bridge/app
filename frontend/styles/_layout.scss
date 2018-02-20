@@ -1,0 +1,26 @@
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+	font-family: $font-primary-regular;
+}
+
+.container {
+  width: 1000px !important;
+}
+
+.header {
+  border: 1px solid $color-gray;
+}
+
+.main {
+  margin: 30px 0;
+  border: 1px solid green;
+}
+
+.footer {
+  border: 1px solid $color-gray;
+}

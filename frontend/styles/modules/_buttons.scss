@@ -1,0 +1,49 @@
+
+.btn {
+	font-family: $font-primary-regular;
+	font-weight: normal;
+	font-style: normal;
+	outline: none !important;
+	transition: $transition-primary;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	&:active {
+		box-shadow: none;
+	}
+	&:hover,
+	&:active {
+		transition: none;
+	}
+}
+
+.btn--primary {
+	padding: 8px 25px 9px;
+	font-size: 16px;
+	font-weight: 500;
+	color: #fff;
+	background-color: $color-primary;
+	&:focus {
+		color: #fff;
+	}
+	&:hover,
+	&:active {
+		color: $color-primary;
+		background-color: rgba($color-primary, .7);
+	}
+
+	&.btn--success {
+		// background-color: $color-green;
+		box-shadow: 8px 8px 16px 0 rgba(#07021E, .1);
+		&:focus {
+			color: #fff;
+		}
+		&:hover,
+		&:active {
+			color: #fff;
+			background-color: #4DBE73;
+		}
+		&:active  {
+			box-shadow: inset -1px 1px 12px rgba(#07021E, .15), 5px 5px 16px 0 rgba(#07021E, .08);
+		}
+	}
+}
