@@ -1,0 +1,67 @@
+image: composer:1.6
+
+stages:
+  - deploy
+
+before_script:
+  ##
+  ## Install ssh-agent if not already installed, it is required by Docker.
+  ## (change apt-get to yum if you use an RPM-based image)
+  ##
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+
+  ##
+  ## Run ssh-agent (inside the build environment)
+  ##
+  - eval $(ssh-agent -s)
+
+  ##
+  ## Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
+  ## We're using tr to fix line endings which makes ed25519 keys work
+  ## without extra base64 encoding.
+  ## https://gitlab.com/gitlab-examples/ssh-private-key/issues/1#note_48526556
+  ##
+  - echo "$RUNNER_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+  ##
+  ## Create the SSH directory and give it the right permissions
+  ##
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+
+  ##
+  ## Store key as file
+  ##
+  - echo "$RUNNER_SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+  ##
+  ## Add required host data to known_hosts
+  ##
+  - echo "$RUNNER_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+  ##
+  ## Install deployer
+  ##
+  - curl -LO https://deployer.org/deployer.phar
+  - mv deployer.phar /usr/local/bin/dep
+  - chmod +x /usr/local/bin/dep
+
+##
+## Runs deploy to host `prod` with verbose output for logs
+##
+deploy to prod:
+  stage: deploy
+  script:
+    - dep deploy:unlock prod -vvv
+    - dep deploy prod -vvv
+  only:
+    - master
+
+##
+## Runs deploy to host `stage` with verbose output for logs
+##
+deploy to stage:
+  stage: deploy
+  script:
+    - dep deploy:unlock stage -vvv
+    - dep deploy stage -vvv
+  only:
+    - develop

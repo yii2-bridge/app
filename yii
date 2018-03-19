@@ -11,7 +11,7 @@ defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
 $modeFile = __DIR__ . '/config/mode.php';
 $mode = 'prod';
 if (file_exists($modeFile)) {
-    $mode = file_get_contents($modeFile);
+    $mode = trim(file_get_contents($modeFile));
 }
 
 $env = new \janisto\environment\Environment(__DIR__ . '/config', $mode);
