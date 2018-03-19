@@ -85,7 +85,7 @@ return [
                 'class' => \naffiq\bridge\BridgeModule::class,
                 'userClass' => \app\models\User::class,
                 'userSettings' => [
-                    'class' => \Da\User\Module::className(),
+                    'class' => \Da\User\Module::class,
                     'administratorPermissionName' => 'admin'
                 ]
             ],

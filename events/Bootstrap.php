@@ -28,13 +28,13 @@ class Bootstrap extends BaseObject implements BootstrapInterface
      */
     public function webBootstrap(\yii\web\Application $app)
     {
-        Event::on(User::className(), UserEvent::EVENT_AFTER_CONFIRMATION, function (Event $event) {
+        Event::on(User::class, UserEvent::EVENT_AFTER_CONFIRMATION, function (Event $event) {
             \Yii::trace('New user confirmed (logged from event in \'app\\events\\Bootstrap.php\')', 'events');
         });
-        Event::on(User::className(), UserEvent::EVENT_AFTER_BLOCK, function (Event $event) {
+        Event::on(User::class, UserEvent::EVENT_AFTER_BLOCK, function (Event $event) {
             \Yii::trace('Blocked user (logged from event in \'app\\events\\Bootstrap.php\')', 'events');
         });
-        Event::on(User::className(), UserEvent::EVENT_AFTER_BLOCK, function (Event $event) {
+        Event::on(User::class, UserEvent::EVENT_AFTER_BLOCK, function (Event $event) {
             \Yii::trace('Unblocked user (logged from event in \'app\\events\\Bootstrap.php\')', 'events');
         });
     }
@@ -46,7 +46,7 @@ class Bootstrap extends BaseObject implements BootstrapInterface
      */
     public function consoleBootstrap(\yii\console\Application $app)
     {
-        Event::on(User::className(), UserEvent::EVENT_AFTER_CREATE, function (Event $event) {
+        Event::on(User::class, UserEvent::EVENT_AFTER_CREATE, function (Event $event) {
             echo 'New user created (logged from event in \'app\\events\\Bootstrap.php\')';
         });
     }

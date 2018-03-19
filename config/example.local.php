@@ -27,8 +27,8 @@ return [
             'db' => $db,
         ],
         'modules' => [
-            'gii' => ['class' => \yii\gii\Module::className()],
-            'debug' => ['class' => \yii\debug\Module::className()]
+            'gii' => ['class' => \yii\gii\Module::class],
+            'debug' => ['class' => \yii\debug\Module::class]
         ],
         'params' => $params,
     ],
