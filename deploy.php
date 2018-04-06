@@ -16,7 +16,8 @@ add('writable_dirs', ['web/media', 'runtime']);
 
 set('allow_anonymous_stats', false);
 
-
+set('git_tty', false); // [Optional] Allocate tty for git on first deployment
+set('ssh_multiplexing', false);
 
 /** @var $userProduction    string username for production host    */
 $userProduction = getenv('USER_PRODUCTION') ?: 'admin';
