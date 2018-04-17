@@ -74,6 +74,7 @@ return [
             ],
             'db' => $db,
             'urlManager' => [
+                'class' => \codemix\localeurls\UrlManager::class,
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
                 'rules' => [
