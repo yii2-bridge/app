@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0fc3444366bf5463122538bcfb21dc1",
+    "content-hash": "41f5c33dde24bd50d342243ca901152d",
     "packages": [
         {
             "name": "2amigos/2fa-library",
@@ -581,7 +581,7 @@
             "version": "v0.12.4",
             "source": {
                 "type": "git",
-                "url": "git@github.com:selectize/selectize.js.git",
+                "url": "https://github.com/selectize/selectize.js.git",
                 "reference": "47e048662d865c4f1ea3b2337de5e06e92fd9530"
             },
             "dist": {
@@ -601,11 +601,33 @@
             ]
         },
         {
+            "name": "bower-asset/semantic",
+            "version": "2.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Semantic-Org/Semantic-UI.git",
+                "reference": "2e76ba0c82b2010020551fb424c1edfa7633837c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Semantic-Org/Semantic-UI/zipball/2e76ba0c82b2010020551fb424c1edfa7633837c",
+                "reference": "2e76ba0c82b2010020551fb424c1edfa7633837c",
+                "shasum": null
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.8"
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
             "name": "bower-asset/sifter",
             "version": "v0.5.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/brianreavis/sifter.js.git",
+                "url": "git@github.com:brianreavis/sifter.js.git",
                 "reference": "2a9c84ec5ac63ceaa4516205e013113626d36a2d"
             },
             "dist": {
@@ -716,6 +738,47 @@
                 "markdown-extra"
             ],
             "time": "2017-07-16T21:13:23+00:00"
+        },
+        {
+            "name": "codemix/yii2-localeurls",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codemix/yii2-localeurls.git",
+                "reference": "6f0c49e2bea65c373a6c60f306e96b512c97d436"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codemix/yii2-localeurls/zipball/6f0c49e2bea65c373a6c60f306e96b512c97d436",
+                "reference": "6f0c49e2bea65c373a6c60f306e96b512c97d436",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "codemix\\localeurls\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Härtl",
+                    "email": "haertl.mike@gmail.com"
+                }
+            ],
+            "description": "Automatic locale/language management for URLs.",
+            "keywords": [
+                "i18n",
+                "locale",
+                "yii2"
+            ],
+            "time": "2018-02-13T09:07:17+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -2095,6 +2158,51 @@
             "time": "2017-01-13T09:11:46+00:00"
         },
         {
+            "name": "kolyunya/yii2-map-input-widget",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kolyunya/yii2-map-input-widget.git",
+                "reference": "32b642d9fb188a00886ff54e222240a4b2eb0411"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kolyunya/yii2-map-input-widget/zipball/32b642d9fb188a00886ff54e222240a4b2eb0411",
+                "reference": "32b642d9fb188a00886ff54e222240a4b2eb0411",
+                "shasum": ""
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kolyunya\\yii2\\": "sources"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU GPL v3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Oleynikov Nikolay",
+                    "email": "OleynikovNY@mail.ru",
+                    "homepage": "http://github.com/Kolyunya/"
+                }
+            ],
+            "description": "Yii2 map input widget. Allows you to select geographcal coordinates via a human-friendly inteface.",
+            "homepage": "https://github.com/Kolyunya/yii2-map-input-widget",
+            "keywords": [
+                "coordinates",
+                "extension",
+                "geo-coordinates",
+                "geocoding",
+                "input",
+                "map",
+                "widget",
+                "yii2"
+            ],
+            "time": "2018-01-10T14:26:57+00:00"
+        },
+        {
             "name": "mihaildev/yii2-ckeditor",
             "version": "1.0.1",
             "source": {
@@ -2251,31 +2359,35 @@
         },
         {
             "name": "naffiq/yii2-bridge",
-            "version": "v0.7.1",
+            "version": "v0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/naffiq/yii2-bridge.git",
-                "reference": "868fd96a4ec3ae20aea94e767ea878974ec1e8a3"
+                "reference": "21cdf42d3bbc9a7f3025e6fc58757fe776f8f0f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/naffiq/yii2-bridge/zipball/868fd96a4ec3ae20aea94e767ea878974ec1e8a3",
-                "reference": "868fd96a4ec3ae20aea94e767ea878974ec1e8a3",
+                "url": "https://api.github.com/repos/naffiq/yii2-bridge/zipball/21cdf42d3bbc9a7f3025e6fc58757fe776f8f0f5",
+                "reference": "21cdf42d3bbc9a7f3025e6fc58757fe776f8f0f5",
                 "shasum": ""
             },
             "require": {
                 "2amigos/yii2-grid-view-library": "^1.0",
-                "2amigos/yii2-usuario": "^1.0",
+                "2amigos/yii2-usuario": "~1.0",
+                "codemix/yii2-localeurls": "^1.7",
                 "kartik-v/yii2-widgets": "^3.4",
+                "kolyunya/yii2-map-input-widget": "^1.2",
                 "mihaildev/yii2-ckeditor": "*",
                 "mihaildev/yii2-elfinder": "^1.2",
                 "mongosoft/yii2-upload-behavior": "^0.1.7",
                 "phpdocumentor/reflection-docblock": "^4.1.1",
+                "vlucas/phpdotenv": "^2.4",
                 "yii2tech/admin": "^1.0",
                 "yii2tech/ar-position": "^1.0",
                 "yii2tech/ar-softdelete": "^1.0",
                 "yiisoft/yii2": "^2.0",
-                "yiisoft/yii2-bootstrap": "^2.0"
+                "yiisoft/yii2-bootstrap": "^2.0",
+                "zelenin/yii2-i18n-module": "^0.1.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.7",
@@ -2289,8 +2401,9 @@
                 "psr-4": {
                     "naffiq\\bridge\\": "src/",
                     "naffiq\\bridge\\assets\\": "src/assets/",
+                    "naffiq\\bridge\\behaviors\\": "src/behaviors/",
                     "naffiq\\bridge\\controllers\\": "src/controllers/",
-                    "naffiq\\bridge\\fixtures\\": "src/fixtures/",
+                    "naffiq\\bridge\\tests\fixtures\\": "tests/fixtures/",
                     "naffiq\\bridge\\modules\\query\\": "src/models/query/",
                     "naffiq\\bridge\\modules\\search\\": "src/models/search/",
                     "naffiq\\bridge\\modules\\": "src/models/",
@@ -2312,7 +2425,7 @@
                 }
             ],
             "description": "Simple admin panel for enthusiasts",
-            "time": "2018-02-14T18:39:32+00:00"
+            "time": "2018-03-27T18:55:44+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
@@ -2687,6 +2800,56 @@
                 "mailer"
             ],
             "time": "2018-01-23T07:37:21+00:00"
+        },
+        {
+            "name": "vlucas/phpdotenv",
+            "version": "v2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vlucas/phpdotenv.git",
+                "reference": "3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c",
+                "reference": "3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8 || ^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dotenv\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause-Attribution"
+            ],
+            "authors": [
+                {
+                    "name": "Vance Lucas",
+                    "email": "vance@vancelucas.com",
+                    "homepage": "http://www.vancelucas.com"
+                }
+            ],
+            "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
+            "keywords": [
+                "dotenv",
+                "env",
+                "environment"
+            ],
+            "time": "2016-09-01T10:05:43+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -3328,6 +3491,101 @@
                 "yii2"
             ],
             "time": "2017-05-01T08:29:00+00:00"
+        },
+        {
+            "name": "zelenin/yii2-i18n-module",
+            "version": "0.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zelenin/yii2-i18n-module.git",
+                "reference": "2ad2d55e507f3bcf43948492e18dd72dcb6467f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zelenin/yii2-i18n-module/zipball/2ad2d55e507f3bcf43948492e18dd72dcb6467f3",
+                "reference": "2ad2d55e507f3bcf43948492e18dd72dcb6467f3",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2",
+                "zelenin/yii2-semantic-ui": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "Zelenin\\yii\\modules\\I18n\\Bootstrap"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zelenin\\yii\\modules\\I18n\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aleksandr Zelenin",
+                    "email": "aleksandr@zelenin.me",
+                    "homepage": "http://zelenin.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Yii2 i18n (internalization) module makes the translation of your application so simple",
+            "homepage": "https://github.com/zelenin/yii2-i18n-module",
+            "keywords": [
+                "i18n",
+                "translation",
+                "translations",
+                "yii2"
+            ],
+            "time": "2015-03-07T00:00:00+00:00"
+        },
+        {
+            "name": "zelenin/yii2-semantic-ui",
+            "version": "2.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zelenin/yii2-semantic-ui.git",
+                "reference": "3e5e599b047832aa5c1358bf8a67703dd93ede84"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zelenin/yii2-semantic-ui/zipball/3e5e599b047832aa5c1358bf8a67703dd93ede84",
+                "reference": "3e5e599b047832aa5c1358bf8a67703dd93ede84",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/semantic": "~2",
+                "yiisoft/yii2": "~2"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "Zelenin\\yii\\SemanticUI\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aleksandr Zelenin",
+                    "email": "aleksandr@zelenin.me",
+                    "homepage": "http://zelenin.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Semantic UI extension for Yii2",
+            "homepage": "https://github.com/zelenin/yii2-semantic-ui",
+            "keywords": [
+                "semantic",
+                "semantic ui",
+                "widgets",
+                "yii2"
+            ],
+            "time": "2017-02-06T00:06:06+00:00"
         }
     ],
     "packages-dev": [
