@@ -51,7 +51,7 @@ deploy to prod:
   stage: deploy
   script:
     - dep deploy:unlock prod -vvv
-    - dep deploy prod -vvv
+    - dep deploy prod --branch=master -vvv
   only:
     - master
 
@@ -62,6 +62,6 @@ deploy to stage:
   stage: deploy
   script:
     - dep deploy:unlock stage -vvv
-    - dep deploy stage -vvv
+    - dep deploy stage --branch=develop -vvv
   only:
     - develop
