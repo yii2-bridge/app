@@ -14,7 +14,7 @@ rapidly creating small projects with admin panel.
 Create project via composer by running following command:
 
 ```bash
-$ composer create-project naffiq/yii2-app-bridge MY_APP_NAME
+$ composer create-project yii2-bridge/app MY_APP_NAME
 ```
 
 Create `config/local.php` (you may copy `config/example.local.php` for example) and configure your local environment DB.

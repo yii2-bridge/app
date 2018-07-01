@@ -1,13 +1,13 @@
 {
-    "name": "naffiq/yii2-app-bridge",
+    "name": "yii2-bridge/app",
     "description": "Yii 2 Bridge Project Template",
     "keywords": ["yii2", "framework", "bridge", "project template"],
     "homepage": "http://www.naffiq.com/",
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/naffiq/yii2-bridge/issues?state=open",
-        "source": "https://github.com/naffiq/yii2-bridge"
+        "issues": "https://github.com/yii2-bridge/core/issues?state=open",
+        "source": "https://github.com/yii2-bridge/core"
     },
     "minimum-stability": "stable",
     "require": {
@@ -15,7 +15,7 @@
         "yiisoft/yii2": "~2.0.5",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
-        "naffiq/yii2-bridge": "~0.9.0",
+        "yii2-bridge/core": "~0.1.0",
         "janisto/yii2-environment": "^1.3"
     },
     "require-dev": {
