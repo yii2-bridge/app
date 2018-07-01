@@ -34,7 +34,7 @@ $ ./vendor/bin/bridge-install
 ## Usage
 
 With fresh installation you will have [http://localhost:8008/admin/](http://localhost:8008/admin/) (assuming you run `php yii serve`) 
-which is yii2-bridge. Add your sub-modules for creating admin sections. More docs at [Yii2 Bridge Wiki](https://github.com/naffiq/yii2-bridge/wiki) (in progress)
+which is yii2-bridge. Add your sub-modules for creating admin sections. More docs at [Yii2 Bridge Wiki](https://github.com/yii2-bridge/app/wiki) (in progress)
 
 ## Users
 
