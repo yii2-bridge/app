@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/naffiq/yii2-app-bridge.git"
+    "url": "git+https://github.com/yii2-bridge/app.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/naffiq/yii2-app-bridge/issues"
+    "url": "https://github.com/yii2-bridge/app/issues"
   },
-  "homepage": "https://github.com/naffiq/yii2-app-bridge#readme",
+  "homepage": "https://github.com/yii2-bridge/app#readme",
   "devDependencies": {
     "babel-preset-react": "^6.24.1",
     "babel-loader": "^6.4.1",

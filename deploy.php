@@ -5,7 +5,7 @@ require 'recipe/yii2-app-basic.php';
 
 // Configuration
 
-set('repository', 'git@github.com:naffiq/yii2-app-bridge.git');
+set('repository', 'git@github.com:yii2-bridge/app.git');
 
 // Shared files/dirs between deploys
 add('shared_files', ['config/local.php']);
