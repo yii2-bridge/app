@@ -8,8 +8,7 @@ require 'recipe/yii2-app-basic.php';
 set('repository', 'git@github.com:yii2-bridge/app.git');
 
 // Shared files/dirs between deploys
-add('shared_files', ['config/local.php']);
-add('shared_dirs', ['web/media', 'runtime']);
+add('shared_dirs', ['web/media', 'runtime', 'vendor']);
 
 // Writable dirs by web server
 add('writable_dirs', ['web/media', 'runtime']);

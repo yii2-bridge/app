@@ -83,7 +83,7 @@ return [
         ],
         'modules' => [
             'admin' => [
-                'class' => \naffiq\bridge\BridgeModule::class,
+                'class' => \Bridge\Core\BridgeModule::class,
                 'userClass' => \app\models\User::class,
                 'userSettings' => [
                     'class' => \Da\User\Module::class,
@@ -117,7 +117,7 @@ return [
         ],
         'modules' => [
             'admin' => [
-                'class' => \naffiq\bridge\BridgeModule::class
+                'class' => \Bridge\Core\BridgeModule::class
             ]
         ],
         'params' => $params,
