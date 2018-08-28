@@ -6,7 +6,7 @@ $db = [
     'dsn' => 'mysql:host=localhost;dbname=yii2bridge',
     'username' => 'root',
     'password' => '',
-    'charset' => 'utf8',
+    'charset' => 'utf8mb4',
 
     // Schema cache options (for production environment)
     //'enableSchemaCache' => true,
@@ -20,6 +20,7 @@ return [
     'yiiPath' => dirname(__DIR__) . '/vendor/yiisoft/yii2/Yii.php',
     'web' => [
         'id' => 'bridge',
+        'language' => 'ru-RU',
         'basePath' => dirname(__DIR__),
         'bootstrap' => [
             'log', 'admin',
