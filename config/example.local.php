@@ -6,7 +6,7 @@ $db = [
     'dsn' => 'mysql:host=localhost;dbname=yii2bridge_local',
     'username' => 'root',
     'password' => '',
-    'charset' => 'utf8',
+    'charset' => 'utf8mb4',
 ];
 
 return [
