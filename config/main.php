@@ -1,7 +1,5 @@
 <?php
 
-use yii\web\UrlNormalizer;
-
 $params = require __DIR__ . '/params.php';
 
 $db = [
@@ -84,8 +82,6 @@ return [
                 'enableLanguageDetection' => false,
                 'normalizer' => [
                     'class' => 'yii\web\UrlNormalizer',
-                    // use temporary redirection instead of permanent for debugging
-                    'action' => UrlNormalizer::ACTION_REDIRECT_PERMANENT,
                 ],
                 'rules' => [
                 ],
