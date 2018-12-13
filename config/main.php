@@ -80,9 +80,6 @@ return [
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
                 'enableLanguageDetection' => false,
-                'normalizer' => [
-                    'class' => 'yii\web\UrlNormalizer',
-                ],
                 'rules' => [
                 ],
             ],
