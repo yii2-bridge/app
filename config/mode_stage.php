@@ -24,6 +24,12 @@ return [
                 ],
             ],
             'db' => $db,
+            'urlManager' => [
+                'normalizer' => [
+                    'class' => 'yii\web\UrlNormalizer',
+                    'action' => \yii\web\UrlNormalizer::ACTION_REDIRECT_TEMPORARY
+                ]
+            ]
         ],
         'params' => $params,
     ],

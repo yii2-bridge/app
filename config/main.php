@@ -1,4 +1,5 @@
 <?php
+
 $params = require __DIR__ . '/params.php';
 
 $db = [
@@ -78,6 +79,7 @@ return [
                 'class' => \codemix\localeurls\UrlManager::class,
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
+                'enableLanguageDetection' => false,
                 'rules' => [
                 ],
             ],
