@@ -13,6 +13,9 @@ add('shared_dirs', ['web/media', 'runtime', 'vendor']);
 // Writable dirs by web server
 add('writable_dirs', ['web/media', 'runtime']);
 
+// Delete paths
+add('clear_paths', ['frontend']);
+
 set('allow_anonymous_stats', false);
 
 set('git_tty', false); // [Optional] Allocate tty for git on first deployment
@@ -64,3 +67,6 @@ after('deploy:symlink', 'php-fpm:restart');
 
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
+
+// Run clear_paths task
+after('deploy:unlock', 'deploy:clear_paths');
