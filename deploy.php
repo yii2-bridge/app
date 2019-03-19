@@ -8,10 +8,10 @@ require 'recipe/yii2-app-basic.php';
 set('repository', 'git@github.com:yii2-bridge/app.git');
 
 // Shared files/dirs between deploys
-add('shared_dirs', ['web/media', 'runtime', 'vendor']);
+add('shared_dirs', ['web/media', 'runtime', 'vendor', 'web/assets']);
 
 // Writable dirs by web server
-add('writable_dirs', ['web/media', 'runtime']);
+add('writable_dirs', ['web/media', 'runtime', 'web/assets']);
 
 // Delete paths
 add('clear_paths', ['frontend']);
@@ -29,14 +29,15 @@ $userStage = getenv('USER_STAGE') ?: 'admin';
 // Hosts
 
 host('project.com')
-    ->stage('production')
+    ->stage('prod')
     ->user($userProduction)
     ->set('deploy_path', '/var/www/project.com');
     
 host('demo.project.com')
     ->stage('stage')
     ->user($userStage)
-    ->set('deploy_path', '/var/www/project.com');  
+    ->set('deploy_path', '/var/www/project.com')
+    ->set('keep_releases', 3);
 
 
 // Tasks
@@ -69,4 +70,4 @@ after('deploy:symlink', 'php-fpm:restart');
 after('deploy:failed', 'deploy:unlock');
 
 // Run clear_paths task
-after('deploy:unlock', 'deploy:clear_paths');
+after('success', 'deploy:clear_paths');
