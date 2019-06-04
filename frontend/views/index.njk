@@ -2,13 +2,27 @@
 
 {% block content %}
 
-  <main class="main">
-    <div class="container">
-
-      <p>Index page</p>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas veniam, nam deserunt placeat, laudantium blanditiis, quo iusto iste similique quis assumenda adipisci facere corporis quisquam vitae maiores molestiae eum quae.</p>
+<main class="main">
+  <div class="container">
+    <div class="pages">
+      <h3>Все страницы верстки</h3>
+      <ul class="site-links list--nostyle">
+        <!-- inject:html -->
+        <!-- endinject -->
+      </ul>
     </div>
-  </main>
+  </div>
+  <style media="screen">
+    .site-links {
+      font-size: 18px;
+      margin: 0;
+      padding: 0;
+    }
 
+    .site-links li {
+      list-style-type: none;
+      margin-bottom: .5em;
+    }
+  </style>
+</main> <!-- end main -->
 {% endblock %}

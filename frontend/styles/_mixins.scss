@@ -1,0 +1,91 @@
+@mixin size($width: 100%, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin block($width: 100%, $height: $width) {
+  display: block;
+  @include size($width, $height);
+}
+
+@mixin inline-block($width: 100%, $height: $width) {
+  display: inline-block;
+  @include size($width, $height);
+}
+
+
+@mixin pos($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin rel($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: relative;
+  @include pos($top, $right, $bottom, $left);
+}
+
+@mixin rel-point($top: auto, $left: auto) {
+  @include rel($top, auto, auto, $left);
+}
+
+@mixin abs($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: absolute;
+  @include pos($top, $right, $bottom, $left);
+}
+
+@mixin abs-point($top: auto, $left: auto) {
+  @include abs($top, auto, auto, $left);
+}
+
+@mixin fixed($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: fixed;
+  @include pos($top, $right, $bottom, $left);
+}
+
+@mixin fixed-point($top: auto, $left: auto) {
+  @include fixed($top, auto, auto, $left);
+}
+
+
+@mixin bg($url, $position: 50% 0, $repeat: no-repeat) {
+  background: url($imgBase + $url) $position $repeat;
+}
+
+@mixin bg-size($url, $size: 100%, $position: 50% 0, $repeat: no-repeat) {
+  background: url($imgBase + $url) $position $repeat;
+  background-size: $size;
+}
+
+
+@mixin trans($params...) {
+  backface-visibility: hidden;
+  transition: $params;
+}
+
+@mixin hover-link($color, $hover: $color) {
+  color: $color;
+  @include trans(color, $transition-primary);
+  &:hover, &:active, &:focus {
+    color: $hover;
+    text-decoration: none;
+  }
+}
+
+@mixin placeholder-color($color, $size: 100%) {
+  &::-webkit-input-placeholder {
+    color: $color;
+    font-size: $size;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+    //font-weight: 300;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+    //font-weight: 300;
+  }
+}
