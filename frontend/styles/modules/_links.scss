@@ -1,11 +1,15 @@
 
 .link {
-  transition: $transition-primary;
-  &:focus {
-    color: #000;
+  color: $color-red;
+  padding-top: 5px;
+  &:hover {
+      color: #000;
+      text-decoration: none;
   }
-  &:hover,
+  &:focus,
   &:active {
-    color: $color-primary;
+      color: #636363;
+      text-decoration: none;
   }
 }
+

@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Шаблон верстки Ракетной фирмы</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" href="favicon.ico" />
-
+    
     <!-- build:css(.) styles/vendor.min.css -->
     <!-- bower:css -->
+    
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -22,7 +23,7 @@
     <!-- build:js(.) scripts/vendor/modernizr.min.js -->
     <script src="node_modules/npm-modernizr/modernizr.js"></script>
     <!-- endbuild -->
-    
+
     <!-- build:js(.) scripts/vendor/respond.min.js -->
     <!--[if lt IE 9]>
     <script src="node_modules/respond/main.js"></script>
@@ -34,21 +35,20 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    
+    <div class="body-overlay">     
+    </div>
+
+    {# import icon macro to use svg icons from sprite #}
+    {% from "_partials/mixins.njk" import icon %}
+
     {# import some variable from ../_partials/variables.njk file and use it later if needed #}
-    {% from "_partials/variables.njk" import developers %} 
-    
-    {% include "_partials/modal.njk" %}
+    {% from "_partials/variables.njk" import developers %}
+
     {% include "_partials/header.njk" %}
 
     {% block content %}{% endblock %}
 
     {% include "_partials/footer.njk" %}
-    
-    <div class="container">
-        <p>Cоздатели сайта: {{developers}}</p>
-    </div>
-
 
     <!-- build:js(.) scripts/vendor.min.js -->
     <!-- bower:js -->
@@ -59,6 +59,7 @@
     {% endif %}
 
     <script src="node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
     <!-- endbower -->
     <!-- endbuild -->
 

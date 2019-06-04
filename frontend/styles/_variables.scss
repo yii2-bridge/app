@@ -1,18 +1,26 @@
 
 // fonts
-$font-primary-regular: 'PTSans-Regular', Helvetica, Arial, sans-serif;
-$font-primary-bold: 'PTSans-Bold', Helvetica, Arial, sans-serif;
-
-$font-secondary-regular: Helvetica, Arial, sans-serif;
+$font-primary-regular: 'Montserrat', Arial, sans-serif;
 
 $font-icons: 'websymbolsligaregular';
 
 $font-numbers: 'Helvetica Neue', Arial, sans-serif;
 
 // colors
-$color-primary: #000;
-$color-secondary: #000;
-$color-gray: #e6e6e6;
+$color-primary: #333333;
+$color-secondary: #4D526B;
+$color-red: #E66958;
+$color-grey: #CFCAC6;
 
 // transitions
 $transition-primary: .3s;
+
+$imgBase: '../images/';
+
+$small: 560px;
+$middle: 760px;
+$tablet: 1000px;
+$laptop: 1170px;
+$desktop: 1300px;
+$wide: 1400px;
+$large: 1800px;
