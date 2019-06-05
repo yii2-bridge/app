@@ -33,6 +33,7 @@ const webpack = require('webpack-stream');
 const named = require('vinyl-named');
 const mainBowerFiles = require('main-bower-files');
 const del = require('del');
+const inject = require('gulp-inject');
 
 const cssnext = require('postcss-cssnext');
 const hexrgba = require('postcss-hexrgba');
@@ -52,7 +53,7 @@ var productionMode;
 
 // VIEWS
 // nunjucks:)
-gulp.task('views', () => {
+gulp.task('view', () => {
   return gulp.src(PATHS.src + '/views/*.njk')
     .pipe($.plumber()).on('error', function(err) { console.error(err); })
     .pipe($.nunjucksRender({
@@ -62,6 +63,52 @@ gulp.task('views', () => {
     .pipe(gulp.dest(PATHS.tmp))
     .pipe($.if(browserSync.active, reload({stream: true, once: true})));
 });
+
+// injecting to index.html all html files from views;
+
+gulp.task('views', ['view'], () => {
+  return gulp.src(PATHS.tmp + '/index.html')
+    .pipe(inject(
+      gulp.src([PATHS.tmp + '/*.html', !PATHS.tmp + '/index.html'], {
+        read: false
+      }), {
+        transform: function (filepath, file) {
+          if (filepath.indexOf('assets') > -1 || filepath.indexOf('index.html') > -1) {
+            return
+          }
+          filepath = filepath.replace('/' + PATHS.tmp + '/', '')
+          if (filepath.slice(-5) === '.html') {
+            return '<li><a href="' + filepath + '" target="_blank">' + filepath + '</a></li>';
+          }
+          // Use the default transform as fallback:
+          return inject.transform.apply(inject.transform, arguments);
+        }
+      }
+    ))
+    .pipe(gulp.dest(PATHS.tmp))
+});
+
+
+// SVG SPRITE
+
+gulp.task('svg-sprites', () => {
+  let svgSprite = require('gulp-svg-sprite'),
+    plumber = require('gulp-plumber'),
+
+    // Basic configuration example
+    config = {
+      mode: {        
+        symbol: true // Activate the «symbol» mode
+      }
+    };
+  return gulp.src(PATHS.src + '/images/svg/*.svg')
+    .pipe(plumber())
+    .pipe(svgSprite(config))
+    .on('error', function (error) {
+      /* Do some awesome error handling ... */
+    })
+    .pipe(gulp.dest(PATHS.src + '/images/'));
+})
 
 
 // STYLES
@@ -161,19 +208,44 @@ gulp.task('put-fonts', () => {
   gulp.start('copy-bs-fonts', 'copy-fa-fonts');
 });
 
+gulp.task('fonts', () => {
+  return gulp.src(PATHS.src + '/fonts/**/*')
+    .pipe(gulp.dest(PATHS.build + '/fonts'))
+    .pipe($.if(browserSync.active, reload({
+      stream: true,
+      once: true
+    })));
+});
+
 
 // IMAGES
 gulp.task('images', () => {
   return gulp.src(PATHS.src + '/images/**/*')
-    .pipe($.cache($.imagemin({
+    // .pipe($.cache($.imagemin({
+    //   progressive: true,
+    //   interlaced: true,
+    //   // don't remove IDs from SVGs, they are often used
+    //   // as hooks for embedding and styling
+    //   svgoPlugins: [{cleanupIDs: false}]
+    // })))
+    // .pipe(gulp.dest(PATHS.build + '/images'))
+    // .pipe($.if(browserSync.active, reload({stream: true, once: true})));
+    .pipe($.if(!'sprite.symbol.svg', $.cache($.imagemin({
       progressive: true,
       interlaced: true,
       // don't remove IDs from SVGs, they are often used
       // as hooks for embedding and styling
-      svgoPlugins: [{cleanupIDs: false}]
-    })))
+      svgoPlugins: [{
+        cleanupIDs: false
+      }, {
+        removeViewBox: false
+      }]
+    }))))
     .pipe(gulp.dest(PATHS.build + '/images'))
-    .pipe($.if(browserSync.active, reload({stream: true, once: true})));
+    .pipe($.if(browserSync.active, reload({
+      stream: true,
+      once: true
+    })));
 });
 
 
@@ -280,7 +352,7 @@ gulp.task('productionModeFalse', () => {
 
 
 // SERVE
-gulp.task('serve', ['views', 'styles', 'scripts'], () => {
+gulp.task('serve', ['views', 'styles', 'scripts', 'svg-sprites'], () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -303,7 +375,8 @@ gulp.task('serve', ['views', 'styles', 'scripts'], () => {
   gulp.watch(PATHS.src + '/scripts/**/*.js', ['scripts', 'eslint']);
   gulp.watch(PATHS.src + '/images/**/*', ['images']);
   gulp.watch(PATHS.src + '/pics/**/*', ['pics']);
-  gulp.watch(PATHS.src + '/fonts/**/*', ['fonts']);
+  gulp.watch(PATHS.src + '/fonts/**/*', ['fonts']);  
+  gulp.watch(PATHS.src + '/images/svg/*', ['svg-sprites']);
 });
 
 gulp.task('serve:web', () => {
@@ -323,6 +396,7 @@ gulp.task('build-markup', [
   'productionModeFalse',
   'useref', 
   'images', 
+  'fonts',
   'pics', 
   'extras'
   ], () => {
@@ -342,6 +416,7 @@ gulp.task('build-production', [
   'productionModeTrue',
   'useref', 
   'images', 
+  'fonts',
   'icons',
   'extras'
   ], () => {
@@ -448,4 +523,78 @@ gulp.task('size:detailed', () => {
 // builds for markup with html files and pics/ folder
 gulp.task('default', ['clean'], () => {
   gulp.start('build');
+});
+
+
+const fs = require('fs');
+const rl = require('readline');
+
+gulp.task('add-sync', () => {
+  var filename = 'package.json';
+  var obj = {};
+  var prompts = rl.createInterface(process.stdin, process.stdout);
+  var command = 'rsync -auFFv --del --delete-excluded web/ rocketman@rocketfirm.net:/var/www/vhosts/rocketfirm.net/markup.rocketfirm.net/';
+  var commandName = 'sync';
+
+  var recursiveAsyncReadLine = function () {
+    prompts.question('Введи название папки на маркапе: /', function (answer) {
+      var foldername = answer.trim();
+      if (foldername == 'exit') {
+        console.log('Ну пока (:');
+        prompts.close();
+        return process.exit(1); //closing RL and returning from function.
+      } else if (!foldername.length) {
+        prompts.close();
+        recursiveAsyncReadLine();
+      } else {
+        prompts.close();
+        writeToFile(command + foldername)
+      }
+    });
+  };
+
+  var writeToFile = function (cmd) {
+    if (obj) {
+      if (!obj.scripts) obj.scripts = {};
+      obj.scripts[commandName] = cmd;
+      json = JSON.stringify(obj, null, 4);
+      fs.writeFile(filename, json, 'utf8', (err, data) => {
+        if (err) {
+          console.log('Что-то пошло не так, зови Энди (https://t.me/nd_pzzz)');
+        } else {
+          console.log('Теперь можешь заливать изменения на маркап \nпо комманде npm run ' + commandName + ' или yarn ' + commandName)
+        }
+      });
+    }
+  }
+
+  fs.readFile(filename, 'utf8', function readFileCallback(err, data) {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    } else {
+      obj = JSON.parse(data); //now it an object
+
+      if (obj.scripts && obj.scripts[commandName]) {
+        var cmd = obj.scripts[commandName];
+        if (typeof cmd === 'string' && cmd.length) {
+          var re = /(?:\/[^\/\r\n]*)$/g;
+          var current = re.exec(cmd)
+          prompts.question('Синхронизация уже настроена. \nПапка ' + current + ' \nПеренастроить? (y/n) ', function (answer) {
+            if (answer == 'exit' || answer === 'n') {
+              console.log('Ну пока (:');
+              prompts.close();
+              return process.exit(1); //closing RL and returning from function.
+            } else if (answer === 'y') {
+              // prompts.close();
+              recursiveAsyncReadLine();
+            }
+          });
+        }
+      } else {
+        recursiveAsyncReadLine();
+      }
+    }
+  });
+
 });
