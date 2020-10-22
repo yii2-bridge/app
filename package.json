@@ -67,7 +67,7 @@
         "jquery": "^1.11.3",
         "jquery-ui": "^1.12.1",
         "jquery.dotdotdot": "^1.7.4",
-        "lodash": "^4.17.11",
+        "lodash": "^4.17.19",
         "modernizr": "^3.5.0",
         "npm-modernizr": "^2.8.3",
         "object-fit-images": "^3.2.4",
