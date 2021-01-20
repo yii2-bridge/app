@@ -60,7 +60,7 @@
         "bootstrap-sass": "^3.3.7",
         "imagesloaded": "^4.1.4",
         "flatmap-stream": "0.0.1-security",
-        "gsap": "^2.0.2",
+        "gsap": "^3.6.0",
         "gulp-inject": "^4.3.2",
         "gulp-svg-sprite": "^1.4.0",
         "inputmask": "^4.0.6",
